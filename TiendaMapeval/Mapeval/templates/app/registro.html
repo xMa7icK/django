@@ -1,0 +1,191 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Registro
+{% endblock %}
+
+{% block contenido %}
+
+
+{% if user.is_superuser %}
+<h2 style="text-align: center;">Registrar Empleado</h2>
+<section class="d-flex justify-content-center mt-3" style="text-align:center;">
+    <hr>
+  <form action="registroEmpleado" method="POST">
+
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      {% csrf_token %}
+      <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form3Example1">RUT*</label>
+          <input class="form-control" type="text" name="rut" placeholder="Ej: 20.641.856-7" required>
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Primer Nombre*</label>
+            <input class="form-control" type="text" name="primerNombre" placeholder="Ej: Matias" required>          
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Segundo Nombre</label>
+            <input class="form-control" type="text" name="segundoNombre" placeholder="Ej: Javier"> 
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Apellido Paterno*</label>
+            <input class="form-control" type="text" name="apellidoPaterno" placeholder="Ej: Pascuealeto" required>           
+          </div>
+          </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Apellido Materno</label>
+            <input class="form-control" type="text" name="apellidoMaterno" placeholder="Ej: Gonzalez">  
+            
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Dirección*</label>
+            <input class="form-control" type="text" name="Direccion" placeholder="Ej: Bueras 346" required>        
+           </div>
+          </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Telefono*</label>
+            <input class="form-control" type="number" name="Telefono" placeholder="Ej: 997760035" required>  
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="registerEmail">Correo*</label>
+        <input class="form-control" type="email" name="email" placeholder="Ej: matias@gmail.com" required>    
+        </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+          <label class="form-label" for="registerPassword">Contraseña*</label>
+          <input class="form-control" type="password" name="contraseña" placeholder="Ej: Matias123." required>
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="registerPassword">Confirmar Contraseña*</label>
+        <input class="form-control" type="password" name="confirm-contraseña" placeholder="Ej: Matias123." required>
+    </div>
+      <!-- Checkbox -->
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
+
+  </form>
+</section>
+
+{% else %}
+
+
+
+<h2 style="text-align: center;">Formulario de registro</h2>
+<section class="d-flex justify-content-center mt-3" style="text-align:center;">
+    <hr>
+  <form action="registroCliente" method="POST">
+
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      {% csrf_token %}
+      <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form3Example1">RUT*</label>
+          <input class="form-control" type="text" name="rut" placeholder="Ej: 20.641.856-7s" required>
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Primer Nombre*</label>
+            <input class="form-control" type="text" name="primerNombre" placeholder="Ej: Matias" required>          
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Segundo Nombre</label>
+            <input class="form-control" type="text" name="segundoNombre" placeholder="Ej: Javier"> 
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Apellido Paterno*</label>
+            <input class="form-control" type="text" name="apellidoPaterno" placeholder="Ej: Pascuealeto" required>           
+          </div>
+          </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Apellido Materno</label>
+            <input class="form-control" type="text" name="apellidoMaterno" placeholder="Ej: Gonzalez">  
+            
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example1">Dirección*</label>
+            <input class="form-control" type="text" name="Direccion" placeholder="Ej: Bueras 346" required>        
+           </div>
+          </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="form3Example2">Telefono*</label>
+            <input class="form-control" type="number" name="Telefono" placeholder="Ej: 997760035" required>  
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="registerEmail">Correo*</label>
+        <input class="form-control" type="email" name="email" placeholder="Ej: matias@gmail.com" required>    
+        </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+          <label class="form-label" for="registerPassword">Contraseña*</label>
+          <input class="form-control" type="password" name="contraseña" placeholder="Ej: Matias123." required>
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="registerPassword">Confirmar Contraseña*</label>
+        <input class="form-control" type="password" name="confirm-contraseña" placeholder="Ej: Matias123." required>
+    </div>
+      <!-- Checkbox -->
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
+
+  </form>
+</section>
+{%endif%}
+{% endblock%}

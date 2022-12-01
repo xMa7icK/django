@@ -1,0 +1,37 @@
+{% extends 'app/padre.html' %}
+{% block titulo %}
+Productos
+{% endblock %}
+
+{% block contenido %}
+<section >
+    <form action="Detalles" method="POST">
+    {% if producto %}
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+            {% for prod in producto %}
+              <div class="col">
+                  <div class="card shadow-sm">
+                      <img src="{{prod.imagenproducto.url}}">
+                      <div class="card-body">
+                          <h5 class="card-title">{{prod.nombreproducto}}</h5>
+                          <p class="card-text"><b>${{prod.precioproducto}}</b></p>
+                          <div class="d-flex justify-cosntent-between align-items-center">
+                              <div class="btn-group">
+                                  <a href="{% url 'detalleProductos' prod.nombreproducto %}" class="btn btn-primary">Detalles</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+            </form>
+          </div>
+      </div>
+        
+
+    {% else %}
+    <p>NO HAY Productos</p>
+    {% endif %}
+
+{% endblock%}

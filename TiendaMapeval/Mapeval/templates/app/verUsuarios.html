@@ -1,0 +1,96 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Ver Usuarios
+{% endblock %}
+{%block contenido%}
+
+<div class="container mt-5">
+    <div class="row">
+
+            <h2 style="text-align: CENTER;">Clientes</h2>
+
+    </div>
+    {% if cliente %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Rut</td>
+                    <td>Primer Nombre</td>
+                    <td>Segundo Nombre</td>
+                    <td>Apellido Paterno</td>
+                    <td>Apellido Materno</td>
+                    <td>Telefono</td>
+                    <td>Dirección</td>
+                    <td>Correo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in cliente%}
+                <tr>
+                    <td>{{c.rut}}</td>
+                    <td>{{c.primernombre}}</td>
+                    <td>{{c.segundonombre}}</td>
+                    <td>{{c.apellidopaterno}}</td>
+                    <td>{{c.apellidomaterno}}</td>
+                    <td>{{c.direccion}}</td>
+                    <td>{{c.telefono}}</td>
+                    <td>{{c.email}}</td>
+                    <td><a class="btn btn-danger" href="{% url 'eliminar_cliente' c.rut %}">Eliminar</a></td>
+                </tr>
+                {% endfor %}    
+        </tbody>
+    </table>
+    {% else %}
+        <p>No hay Clientes ingresados.</p> <a class="btn btn-primary" href="/registroCliente">Registrar Empleado</a>
+    {% endif %}
+</div>
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+
+            <h2 style="text-align: CENTER;">Empleados</h2>
+
+    </div>
+    {% if empleados %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Rut</td>
+                    <td>Primer Nombre</td>
+                    <td>Segundo Nombre</td>
+                    <td>Apellido Paterno</td>
+                    <td>Apellido Materno</td>
+                    <td>Correo</td>
+                    <td>Dirección</td>
+                    <td>Telefono</td>
+                    <td>Opciones</td>
+    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in empleados%}
+                <tr>
+                    <td>{{e.rut}}</td>
+                    <td>{{e.primernombre}}</td>
+                    <td>{{e.segundonombre}}</td>
+                    <td>{{e.apellidopaterno}}</td>
+                    <td>{{e.apellidomaterno}}</td>
+                    <td>{{e.correo}}</td>
+                    <td>{{e.direccion}}</td>
+                    <td>{{e.telefono}}</td>
+                    <td><a class="btn btn-danger" href="{% url 'eliminar_empleado' e.rut %}">Eliminar</a></td>
+                    
+                </tr>
+                {% endfor %}    
+        </tbody>
+    </table>
+    {% else %}
+        <p>No hay Empleados ingresados.</p>
+    {% endif %}
+</div>
+{%endblock%}

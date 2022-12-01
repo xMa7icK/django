@@ -1,0 +1,95 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Formulario de contacto
+{% endblock %}
+
+{% block contenido %}
+
+
+{% if user.is_superuser %}
+
+<div class="container mt-5">
+    <div class="row">
+
+            <h2 style="text-align: CENTER;">Peticiones Formulario</h2>
+
+    </div>
+    {% if formulario %}
+    <table class="table">
+            <td >Rut Usuario</td>
+            <td>Nombre usuario</td>
+            <td>Apellido Usuario</td>
+            <td>Correo Usuario</td>
+            <td>Mensaje Usuario</td>
+        </tr>
+    </th>
+    <tbody>
+
+        {% for i in formulario %} 
+        <tr>
+            <td> {{i.rutcliente}} </td>
+            <td> {{i.nombreCliente}} </td>
+            <td> {{i.apellidocliente}} </td>
+            <td> {{i.email}} </td>
+            <td> {{i.mensajecliente}} </td>
+        <tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+{% else %}
+<p>No hay peticiones registradas.</p>
+{% endif %}
+</div>
+    
+
+
+
+
+
+{%else%}
+<section class="d-flex justify-content-center mt-3" >
+    <div class="card col-sm-6 p-3">
+        <div>
+
+            <h4 style="text-align:center ;">Formulario de Contacto</h4>
+        </div class="mb-3">
+        <div class="mb-2">
+    
+            <form action="formulario" method="POST">
+                {% csrf_token %}
+                <div class="form-outline">
+                    <label class="form-label" for="form3Example1">RUT*</label>
+                    <input class="form-control" type="text" name="rut" placeholder="Ej: 20.641.856-7" required>
+                  </div>
+                <div class="mb-2">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Matias" required>
+                </div>
+
+                <div class="mb-2">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Peña" required>
+                </div>
+
+                <div class="mb-2">
+                    <label for="correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="correo" placeholder="Ej: matias.pena27@inacapmail.cl" required>
+                </div>
+
+                <div class="mb-2">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="mensaje" class="form-control" id="mensaje" placeholder="Ej: Consulta presupuesto estimado para instalación de aire acondicionado." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mb-4">enviar</button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+</section>
+
+
+
+{% endblock %}

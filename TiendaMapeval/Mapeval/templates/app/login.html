@@ -1,0 +1,43 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Iniciar Sesion
+{% endblock %}
+{% block contenido %}
+
+<section class="d-flex justify-content-center mt-3" >
+  <form action="iniciarSesion" method="POST">
+    {% csrf_token %}
+      <!-- Email input -->
+
+      <div class="form-outline mb-4">
+        <label class="form-label"  for="form2Example1">Correo</label>
+        <input type="email" name="correo" id="form2Example1" class="form-control" required/>
+        
+      </div>
+    
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label"  for="form2Example2" >Contraseña</label>
+        <input type="password"name="contraseña"  id="form2Example2" class="form-control" required/>
+        
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+          <!-- Checkbox -->
+    
+        <div class="col">
+          <!-- Simple link -->
+          <a href="#!" style="text-decoration: none;">Cambiar Contraseña</a>
+        </div>
+      </div>
+    
+      <div class="col-auto">
+        <input class="btn btn-primary mt-3" value="Iniciar Sesión" type="submit">
+        
+    </div>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Vista Productos
+{% endblock %}
+
+{%  block contenido %}
+
+<table class="table" >
+    <th>
+        <tr>
+            <td  >id</td>
+            <td>nombre</td>
+            <td>precio</td>
+            <td>cantidad</td>
+            <td>descripcion</td>
+            <td>estado</td>
+            <td>imagen</td>
+            <td>Opciones</td>
+
+
+        </tr>
+    </th>
+    <tbody>
+        {% for prod in producto %}
+        <tr>
+            <td> {{prod.iud}}</td>
+            <td> {{prod.nombreproducto}} </td>
+            <td> ${{prod.precioproducto}} </td>
+            <td> {{prod.cantidadproducto}} </td>
+            <td> {{prod.descripcionproducto}} </td>
+            <td> {{prod.estadoproducto}} </td>
+            <td> <div class="card " style="width: 18rem;">
+                <div class="card-body align-self-center">
+                     <img class="card-img-top" src="{{prod.imagenproducto.url}}" alt="Card image cap">
+                </div>
+              </div> </td>
+              
+            <td>
+                 <!-- <a class="btn btn-danger" href="{% url 'modificarProducto' prod.idproducto %}">Modificar</a> -->
+                <a class="btn btn-danger" href="{% url 'eliminarProducto' prod.idproducto %}">Eliminar</a> </td>
+        </tr>
+        {% endfor %}
+          <td></td>
+        <form method="POST" action="ingresoProducto" enctype="multipart/form-data">
+            {% csrf_token %}
+        <td> <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ej: Aire Acondicionado" required> </td>
+
+
+        <td> <input class="form-control" type="number" name="precio" id="precio" placeholder="Ej: 45678" required> </td>
+        
+        <td> <input class="form-control" type="number" name="cantidad" id="cantidad" placeholder="Ej: 34" required> </td>
+
+
+        <td><input class="form-control" type="text" name="descripcion" id="Descripcion" placeholder="Ingrese Descripcion" required></td>
+        
+        <td><input class="form-control" type="text" name="estado" id="estado" placeholder="Ingrese el estado" required></td>
+        <td> <div class="col-md-5 mb-3">
+            <input class="form-control-file" type="file" name="image" id="image" required>
+          </div></td>
+        <td><input class="btn btn-primary" value="Agregar" type="submit">
+            
+        </td>
+        
+
+
+    </tbody>
+    </form>
+</table>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Mapeval
+{% endblock %}
+
+{% block contenido %}
+<section class="d-flex justify-content-center" >
+    {%if user.is_superuser%}
+    <div class="card col-sm-6 p-2" style="margin-top: 20px; margin-bottom: 20px;" >
+        <div>
+            </div class="mb-3">
+            <h1 style="text-align: center;">ADMINISTRADORES</h1>
+            <div class="mb-2">
+
+        </div>
+        </div>
+    {% else %}
+    <div class="card col-sm-6 p-2" style="margin-top: 20px; margin-bottom: 20px;" >
+        <div>
+            <h4 style="text-align:center ;">¿Quienes Somos?</h4>
+            <p style="text-align: center;">Mapeval es una empresa 100% valdiviana, creada el 21 de febrero del 2021 por Oscar Peña y Mario Estrada, ambos con más de 15 años de experiencia en el área industrial.</p>
+            <h4 style="text-align:center ;">¿Que Hacemos?</h4>
+            <p style="text-align: center;">Mapeval se dedica a la mantención y montaje industrial de igual manera a la mantención y montaje de equipos frigorificos o aires acondicionados, actualmente nuestra empresa le brinda servicios a la CERVECERÍA KUNSTMANN, la CLINICA ALEMANA y a cervecerias pequeñas.</p>
+        </div class="mb-3">
+        <div class="mb-2">
+
+        </div>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock%}

@@ -1,0 +1,48 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+
+Detalle
+{% endblock %}
+
+
+
+{%block contenido%}
+<div class="container-md">
+
+</div>
+<div class="container-lg border border-brown border-5 p-4 mt-3" >
+    <div class="row">
+        <div class="col-lg-5 ms-5 mt-5 mb-5 border border-white border-5 p-4">
+            <h2 style="text-transform:uppercase ;">{{producto.nombreproducto}}</h2>
+            <img src="{{producto.imagenproducto.url}}" class=" w-100">
+        </div>        <div class="col-lg-6 ms-5 mt-5">
+    
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <p><b class="bg-danger p-2  text-white">Disponible: {{producto.cantidadproducto}}</b></p>
+            <br>
+            <h3 style="text-transform:uppercase ;">$ {{producto.precioproducto}}</h3>
+            <br>
+            <div class="container-lg border border-brown border-5 p-4 mt-3" style="text-align: center;">
+                <p class="">{{producto.descripcionproducto}}</p>
+            </div>
+            <br>
+            <div class="col-md-5 form-group ms-2">
+                <form action="/carrito">
+                    <input class="btn btn-primary" value="Agregar" type="submit">
+                </form>
+            </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+{%endblock%}

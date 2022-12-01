@@ -1,0 +1,66 @@
+{% extends 'app/padre.html' %}
+
+{% block titulo %}
+Formulario de contacto
+{% endblock %}
+
+{% block contenido %}
+<h2 style="text-align: center; margin-top: 3px;">Modificar Producto</h2>
+<section class="d-flex justify-content-center mt-3" style="text-align:center;">
+    <hr>
+    <form method="POST" action="modificarProducto">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      {% csrf_token %}
+      <div class="col">
+        <div class="form-outline">
+            <label class="form-label">Nombre</label>
+            <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ej: Aire Acondicionado" required>
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label">Precio</label>
+            <input class="form-control" type="number" name="precio" id="precio" placeholder="Ej: 45678" required>          
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label">Cantidad</label>
+            <input class="form-control" type="number" name="cantidad" id="cantidad" placeholder="Ej: 34" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+          
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" >Estado</label>
+            <input class="form-control" type="text" name="estado" id="estado" placeholder="Ingrese el estado" required>          
+          </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row mb-4">
+          
+
+      
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label">Descripcion</label>
+            <input class="form-control" type="text" name="descripcion" id="Descripcion" placeholder="Ingrese Descripcion" required>  
+        </div>
+
+        <div style="text-align: center;">
+          <a class="btn btn-primary" href="productosIngresados">Cancelar</a>
+          <input class="btn btn-primary" value="Agregar" type="submit">
+        </div>
+  </form>
+</section>
+
+{% endblock %}
